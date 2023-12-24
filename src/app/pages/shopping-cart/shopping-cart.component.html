@@ -1,0 +1,26 @@
+
+<h2>Sepetim</h2>
+<div class="cart-container">
+  <div class="cart-page-content">
+    <div class="cart-items-container">
+      @if (itemList().length>0){
+      <ul class="cart-items">
+      @for (item of itemList(); track item.name; let idx = $index ){
+      <li class="cart-item">
+        {{item.name }} - {{item.price}}
+        <button (click)="removeItem(item)">Sil</button>
+      </li>
+      }
+      </ul>
+      }
+      @else {
+      <div>Sepetinizde herhangi bir ürün bulunmamaktadır.</div>
+      }
+    </div>
+  </div>
+</div>
+
+
+<div *ngIf="itemList().length>0">
+  Sepet Toplam Tutar: {{totalPrice()}}
+</div>
