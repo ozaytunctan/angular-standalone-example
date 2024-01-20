@@ -39,7 +39,6 @@ export class GeoService {
   }
 
    addCapitals(capitals: Capital[]): void {
-    debugger;
     if (!this.layersControl) return;
     const continents = [...new Set(capitals.map(value => value.continent))];
 

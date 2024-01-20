@@ -1,17 +1,20 @@
-import {Component, OnInit} from '@angular/core';
-import {NgForOf, NgIf} from "@angular/common";
+import {ChangeDetectionStrategy, Component, effect, OnInit} from '@angular/core';
+import {CommonModule, NgForOf, NgIf} from "@angular/common";
 import {CartService} from "../../core/services/cart.service";
-import {CartItem} from "../../core/models/cart-item.model";
+import {CartItemComponent} from "./cart-item/cart-item.component";
 
 @Component({
   selector: 'tx-shopping-cart',
   standalone: true,
   imports: [
     NgForOf,
-    NgIf
+    NgIf,
+    CartItemComponent,
+    CommonModule
   ],
   templateUrl: './shopping-cart.component.html',
-  styleUrl: './shopping-cart.component.scss'
+  styleUrl: './shopping-cart.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ShoppingCartComponent implements OnInit {
 
@@ -20,6 +23,9 @@ export class ShoppingCartComponent implements OnInit {
   totalPrice = this.cartService.totalPrice;
 
   constructor(private cartService: CartService) {
+    effect(()=>{
+      console.log(`Cart total price:${this.totalPrice()}`);
+    })
   }
 
 
@@ -27,8 +33,6 @@ export class ShoppingCartComponent implements OnInit {
 
   }
 
-  removeItem(item: CartItem) {
-    this.cartService.removeItem(item);
-  }
+
 
 }

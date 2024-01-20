@@ -1,3 +1,4 @@
-<div class="cart-item-container">
-  <p>cart-item works! </p>
-</div>
+<li class="cart-item">
+  {{item().name }} - {{item().price}}
+  <button (click)="removeItem()">Sil</button>
+</li>

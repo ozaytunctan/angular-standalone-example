@@ -2,6 +2,7 @@ import {Routes} from '@angular/router';
 import {HomePageComponent} from "./pages/home-page/home-page.component";
 import {PageNotFoundComponent} from "./pages/page-not-found/page-not-found.component";
 import {ShoppingCartComponent} from "./pages/shopping-cart/shopping-cart.component";
+import {ConversationComponent} from "./pages/conversation/conversation.component";
 
 export const routes: Routes = [
   {
@@ -12,6 +13,10 @@ export const routes: Routes = [
   {
     path: 'home',
     component: HomePageComponent
+  },
+  {
+    path:"conversation/:consId",
+    component:ConversationComponent
   },
 
   {

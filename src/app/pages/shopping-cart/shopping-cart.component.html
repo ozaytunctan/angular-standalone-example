@@ -1,21 +1,17 @@
-
 <h2>Sepetim</h2>
 <div class="cart-container">
   <div class="cart-page-content">
     <div class="cart-items-container">
-      @if (itemList().length>0){
       <ul class="cart-items">
-      @for (item of itemList(); track item.name; let idx = $index ){
-      <li class="cart-item">
-        {{item.name }} - {{item.price}}
-        <button (click)="removeItem(item)">Sil</button>
-      </li>
-      }
+        <ng-container *ngIf="itemList().length>0 else emptyCart;">
+          <cart-item *ngFor="let item of itemList()"
+                     [value]="item"></cart-item>
+        </ng-container>
+        <ng-template #emptyCart>
+          <div>Spetinizde ürün Bulunmamaktadır.</div>
+        </ng-template>
+
       </ul>
-      }
-      @else {
-      <div>Sepetinizde herhangi bir ürün bulunmamaktadır.</div>
-      }
     </div>
   </div>
 </div>

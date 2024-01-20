@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'tx-page-not-found',
@@ -8,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './page-not-found.component.scss'
 })
 export class PageNotFoundComponent {
+
+
 
 }

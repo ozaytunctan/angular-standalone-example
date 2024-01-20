@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, effect, input, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterOutlet} from '@angular/router';
 import {LeafletModule} from "@asymmetrik/ngx-leaflet";
@@ -13,9 +13,10 @@ import {HttpClientModule} from "@angular/common/http";
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent implements OnInit,AfterViewInit{
+export class AppComponent implements OnInit, AfterViewInit {
 
   title = 'angular17-guides-client';
+
   constructor(private appService: AppService, private geoService: GeoService) {
   }
 
